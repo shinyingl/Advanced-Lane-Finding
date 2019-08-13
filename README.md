@@ -70,7 +70,7 @@ Curvature radius is calculated in `def measure_curvature_real`, the car location
 By putting all the above together, a final image processing pipline is as show below:
 ![Image8](output_images/10_Pipeline.png)
 
-Test the pipeline on static frames (that I had trouble with in the first view versions of pipleline)
+Test the pipeline on static frames (that I had trouble with in the first few versions of pipeline)
 
 ![Image9](output_images/09_Issue2.png) ![Image10](output_images/09_Issue1.png) 
 
