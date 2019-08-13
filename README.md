@@ -51,7 +51,7 @@ Search the first frame lane lin with `def find_lane_line`:
 ![Image5](output_images/05_FindLaneBoundary.png)   ![Image5](output_images/05_Histogram.png)
 
 ### 5. Find Lane Line from the Feedback of Previous Frame
-Use previous frame information as initial condition to search current frame lane line with `search_around_poly`:
+Use previous frame information as initial conditions to search current frame lane line with `search_around_poly`:
 - From the 2nd frame of the video, use the previous fram fitted coefficient as a starting point to search for the non-zero pixels in the green shaded area as below. (I noticed that if I choose different search range in this compared to the sliding window range, it will screw up the lane line prediction a little bit with my chosen parameters of thresholded binary images.) 
 - Again, a 2nd order polynominal fit is used to predict the lane line boundary. 
 - Using the feedback from previous frame increases the stability of the lane line prediction
@@ -67,7 +67,7 @@ Curvature radius is calculated in `def measure_curvature_real`, the car location
   ![Image7](output_images/07_NumericalOutput.png)
 
 ### 7. Final Pipeline & Output in Static Image
-By putting all the above together. A final image processing pipline is as show below:
+By putting all the above together, a final image processing pipline is as show below:
 ![Image8](output_images/10_Pipeline.png)
 
 Test the pipeline on static frames (that I had trouble with in the first view versions of pipleline)
@@ -81,6 +81,7 @@ Test the pipeline on static frames (that I had trouble with in the first view ve
 I tried the same pipline on the harder challenge videio. However, it is not very successful. So the video is not uploaded. 
 - Below is the first frame result, it indicates that further tuning on the threashold and sliding window search is needed. 
 - My green shade marked lane completely disappered after some light glare comes into the videio. It might be able to be improved if I input more previous frame data into the image processing pipeline if the current frame lane line is not found. 
+- I do just notice here are some more suggesions at the end of project rubric page. But I will stop here for now and add the link as my own note for future improvment. Link: https://review.udacity.com/#!/rubrics/1966/view
 
 ![Image11](output_images/12_Challenge.png) 
 
