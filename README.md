@@ -1,6 +1,6 @@
 # Self Drivng Car - Project 2:  Advanced Lane Finding
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-![Lanes Image](output_images/08_Final.png)
+![Lanes Image](output_images/08_Final2.png)
 
 The goal of the project is to write a software pipeline to identify the lane boundaries in a video. 
 
@@ -39,6 +39,7 @@ The camera calibration code is in `def CameraCal(images)`. Images of chessboard 
 ### 3. Perspective Transform (*birds-eye view*)
 ---
 The image "straight_line1.jpg" is used to obtain the tranformation matrix M and inverse of M in `def birdseye`. It is easier to eye-ball if the transformation is working as expecected. The lane lines from the image are transform into a birds-eye view that shows the two lane lines are in parrellel. I assume this part can potentially be done by physically measuring the camera tilting angle. 
+*After the 1st submission of the project, I was reminded the lane is shifted after the perspective transform. I also noticed that the scale was changed after the tranformation. This shows impact on the curvature radius calculation car center offset later in the pipleline. The dst is updated to match the physical dimension conversion*
 ![Image4](output_images/04_BirdsEyeView.png)
 
 ### 4. Find Lane Line at T0
@@ -62,9 +63,9 @@ Curvature radius is calculated in `def measure_curvature_real`, the car location
 - The pixel number coordinate is converted into physical unint in meters.
 - The curvatures is calculated with the eaqution: <img src="output_images/11_Curvature.png" width="20%">
 - The curvatures of both lanes are calculated from the location at the bottom of the image. The output curvature is calculated by averaging the curvalture of both left lane line and right lane line.
-- The car offset location is calculated by the average of left lane line and right lane line x-location subtracted by the image mid-point in x-direction.
+- The car offset location is calculated by *the base* of left lane line and right lane line x-location subtracted by the image mid-point in x-direction.
 
-  ![Image7](output_images/07_NumericalOutput.png)
+  ![Image7](output_images/07_NumericalOutput2.png)
 
 ### 7. Final Pipeline & Output in Static Image
 By putting all the above together, a final image processing pipline is as show below:
@@ -72,10 +73,12 @@ By putting all the above together, a final image processing pipline is as show b
 
 Test the pipeline on some static frames (that I had trouble with in the first few versions of pipeline):
 
-![Image9](output_images/09_Issue2.png) ![Image10](output_images/09_Issue1.png) 
+![Image9](output_images/09_Issue2_2.png) ![Image10](output_images/09_Issue1_2.png) 
 
 ### 8. Project Output Video
-- Project Video Link: https://github.com/shinyingl/SelfDrivingCar-P2/blob/master/project_video_out_final.mp4
+- Project Video Link: 
+	- (2nd submission) https://github.com/shinyingl/SelfDrivingCar-P2/blob/master/project_video_out_final2.mp4 
+    - (1st submission) https://github.com/shinyingl/SelfDrivingCar-P2/blob/master/project_video_out_final.mp4
 
 ### 9. Challenge
 The same pipeline is applied on the harder challenge videio. However, it is not very successful. So the video is not uploaded. 
